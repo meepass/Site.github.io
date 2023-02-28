@@ -1,15 +1,7 @@
 body {
-    background-color: rgb(177, 177, 177);
+    background-color: cyan;
 }
-.center {
-    text-align: center;
-    align-items: center;
+h1 {
+    font-family: cursive;
+    color: orange;
 }
-#colorPicker {
-    background-color: none;
-    outline: none;
-    height: 40px;
-    width: 60px;
-    cursor: pointer;
-}
-  
