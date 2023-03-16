@@ -44,7 +44,7 @@ scene('game', () => {
   };
 
   var score = 0;
-  var fuel = 50 + upgradeMod(2);
+  var fuel = 100 + upgradeMod(3);
   var maxFuel = fuel;
   
   var distace = 0;
