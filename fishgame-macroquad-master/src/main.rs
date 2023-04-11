@@ -29,8 +29,8 @@ use gui::Scene;
 
 pub mod consts {
     pub const GRAVITY: f32 = 700.0;
-    pub const JUMP_SPEED: f32 = 580.0;
-    pub const RUN_SPEED: f32 = 550.0;
+    pub const JUMP_SPEED: f32 = 780.0;
+    pub const RUN_SPEED: f32 = 750.0;
     pub const PLAYER_SPRITE: u32 = 120;
     pub const BULLET_SPEED: f32 = 580.0;
     pub const JUMP_GRACE_TIME: f32 = 0.15;
