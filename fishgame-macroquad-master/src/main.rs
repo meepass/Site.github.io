@@ -29,13 +29,13 @@ use gui::Scene;
 
 pub mod consts {
     pub const GRAVITY: f32 = 700.0;
-    pub const JUMP_SPEED: f32 = 480.0;
-    pub const RUN_SPEED: f32 = 450.0;
+    pub const JUMP_SPEED: f32 = 580.0;
+    pub const RUN_SPEED: f32 = 550.0;
     pub const PLAYER_SPRITE: u32 = 120;
     pub const BULLET_SPEED: f32 = 580.0;
     pub const JUMP_GRACE_TIME: f32 = 0.15;
     pub const NETWORK_FPS: f32 = 30.0;
-    pub const GUN_THROWBACK: f32 = 10000.0;
+    pub const GUN_THROWBACK: f32 = 1000.0;
 }
 
 #[derive(Debug, Clone, Copy, PartialEq)]
