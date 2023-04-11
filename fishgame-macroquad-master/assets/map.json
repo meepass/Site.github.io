@@ -288,8 +288,8 @@
          "name":"tileset",
          "spacing":0,
          "tilecount":49,
-         "tileheight":32,
-         "tilewidth":32
+         "tileheight":36,
+         "tilewidth":40,
         }, 
         {
          "columns":5,
@@ -304,8 +304,8 @@
          "tileheight":51,
          "tilewidth":48
         }],
- "tilewidth":34,
+ "tilewidth":32,
  "type":"map",
  "version":"1.6",
- "width":29
+ "width":27
 }
