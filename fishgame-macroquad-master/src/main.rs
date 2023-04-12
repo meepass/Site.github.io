@@ -34,7 +34,7 @@ pub mod consts {
     pub const PLAYER_SPRITE: u32 = 120;
     pub const BULLET_SPEED: f32 = 580.0;
     pub const JUMP_GRACE_TIME: f32 = 0.15;
-    pub const NETWORK_FPS: f32 = 30.0;
+    pub const NETWORK_FPS: f32 = 60.0;
     pub const GUN_THROWBACK: f32 = 1000.0;
 }
 
@@ -384,7 +384,7 @@ async fn main() {
             Scene::MatchmakingGame { private } => {
                 stop_sound(fish_bowl);
 
-                let network_id = scene::get_node(nakama)
+                let netwo   rk_id = scene::get_node(nakama)
                     .api_client
                     .session_id
                     .clone()
