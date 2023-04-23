@@ -1,0 +1,13 @@
+[workspace.dependencies]
+leptos = { version = "0.0.19", default-features = false, features = ["interning",] }
+
+[workspace]
+members = [
+    "vim_royale",
+    "vim_royale_view",
+    "vim_royale_client",
+    "vim_royale_server",
+    "encoding",
+    "crates/*",
+    "game",
+]

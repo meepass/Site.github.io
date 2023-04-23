@@ -1,0 +1,16 @@
+build
+node_modules
+isolate-*
+perf.data*
+nodestacks
+out
+out2
+out*
+.zshrc.bak
+test.js
+dist
+
+
+# Added by cargo
+
+/target
