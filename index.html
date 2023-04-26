@@ -1,13 +1,125 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homework site</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <h1> site under maintenance, I'm sorry all teachers and students, homework help and research at the fullest will not take place yet.
-</body>
+<html>
+      <body>
+      <canvas id="canvas1"></canvas>
+  </body>
+  <head>
+      <title> walk 4 water </title>
+      <style>
+          
+#canvas1 {
+    position: absolute;
+    background: black;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+      </style>
+  </head>
+    <script>
+        
+
+//Setup Canvas Variables and etc,
+const canvas = document.getElementById('canvas1');
+const context = canvas.getContext('2d');
+const particlesArray = [];
+let hue = 0;
+
+class Particle {
+    constructor() {
+        this.x = mouse.x;
+        this.y = mouse.y;
+        this.size = Math.random() * 15 + 1;
+        this.speedX = Math.random() * 3 - 1.5;
+        this.speedY = Math.random() * 3 - 1.5;
+        this.color = 'hsl(' + hue + ',100%, 50%)';
+    }
+    update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        if (this.size > 0.2) this.size -= 0.1;
+    }
+    draw() {
+        context.fillStyle = this.color
+        context.beginPath();
+        context.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        context.fill();
+    }
+    
+}
+
+
+
+function handleParticles(){
+    for (let i = 0; i < particlesArray.length; i++) {
+        particlesArray[i].update();
+        particlesArray[i].draw();
+        for (let j = i; j < particlesArray.length; j++) {
+            const dx = particlesArray[i].x - particlesArray[j].x;
+            const dy = particlesArray[i].y - particlesArray[j].y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            if (distance < 100){
+                context.beginPath();
+                context.strokeStyle = particlesArray[i].color;
+                context.lineWidth = particlesArray[i].size/2.8;
+                context.moveTo(particlesArray[i].x, particlesArray[i].y);
+                context.lineTo(particlesArray[j].x, particlesArray[j].y);
+                context.stroke();
+            }
+        
+        }
+        if (particlesArray[i].size <= 0.3) {
+            particlesArray.splice(i, 1);
+            i--;
+        }
+    }
+}
+//
+//
+//
+//
+//
+const mouse = {
+    x: 200,
+    y: 200,
+}
+
+
+    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
+
+// recalibrate Size
+
+window.addEventListener('resize', function(){
+    //Resize Canvas (recalibrate)
+    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
+});
+
+
+window.addEventListener('mousemove', function(event){
+    mouse.x = event.x;
+    mouse.y = event.y;
+    for (let i = 0; i < Math.random() * 2; i++){ //change the value of the thing next to "i < ()" to increase the amount of particles
+        particlesArray.push(new Particle());
+    }          
+});
+
+function animate() {
+    //context.fillStyle = 'rgba(0,0,0,0.05';
+    //context.fillRect(0, 0, canvas.width, canvas.height);
+    context.clearRect(0, 0, canvas.width, canvas.height)
+    context.fillStyle = "gray";
+    context.font = "bold 30px Arial";
+    context.fillText("Walk 4 water 'clean water changes everything!'", (canvas.width / 6) - 17, (canvas.height / 2) + 8);
+    context.fillText("visit 'https://walk4water.hhi.org/signal-mountain-tn-2023' to donate NOW!", (canvas.width /6) - 17, (canvas.height / 1.5) + 8);
+    hue+= 7;
+    requestAnimationFrame(animate);
+    handleParticles();
+    
+}
+animate();
+
+    </script>
 </html>
